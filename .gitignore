@@ -2,3 +2,4 @@
 *.hdf
 *.png
 *.tar.xz
+*.pyc
