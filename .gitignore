@@ -3,3 +3,4 @@
 *.png
 *.tar.xz
 *.pyc
+**/__pycache__
