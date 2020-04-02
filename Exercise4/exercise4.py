@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 """
-Creates equal bins every 10 degree intervall
+Creates bins of the data every 10 degree intervall
 Then calculates mean and std 
 
 Argument:
@@ -24,7 +24,7 @@ def bin_Data(dset):
     lons = dset.longitude
     biascorrXco2 =  dset.xco2
     xCO2q_flag = dset.xco2_quality_flag 
-    qa_biascorrXco2 = biascorrXco2.where(xCO2q_flag==1)
+    qa_biascorrXco2 = biascorrXco2.where(xCO2q_flag==0)
     bin_bounds = np.arange(np.ceil(lats.min()/10)*10, np.ceil(lats.max()/10)*10, 10)
     biasCorrXCO2Bins, qa_biasCorrXco2Bins, qa_mean = [],[],[]
     nP, qa_nP = [],[]
@@ -36,6 +36,7 @@ def bin_Data(dset):
         sel =lats[(lats.values>= bin_bounds[i-1]) & (lats.values<= bin_bounds[i])]
         tempXco2 = biascorrXco2.loc[sel.sounding_id]
         tempQa_Xco2 = qa_biascorrXco2.loc[sel.sounding_id]
+        
         biasCorrXCO2Bins.append(tempXco2)
         qa_biasCorrXco2Bins.append(tempQa_Xco2)
         mean.append(tempXco2.values.mean())
@@ -54,5 +55,8 @@ def bin_Data(dset):
     df['qa_Xco2_mean'] = qa_mean
     df['qa_Xco2_std'] = qa_std
     df['qa_Xco2_nP'] = qa_nP
+    df['bins'] = bin_bounds[1:]
     df.index = bin_bounds[1:]
     return biasCorrXCO2Bins, qa_biasCorrXco2Bins, df
+
+
