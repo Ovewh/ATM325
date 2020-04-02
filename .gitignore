@@ -1,7 +1,42 @@
+# Ignore all files without extensions, except from makefiles
+*
+!/**/
+!*.*
+!Makefile
+
+# Latex
+*.out
+*.pdf
+*.aux
+*.log
+*.bcf
+*.fls
+*.fdb_latexmk
+*.run.xml
+*.dvi
+settings.json
+__latexindent_temp.tex
+*synctex.gz
+*.bbl
+*.blg
+
+# python
+**/.pytest_cache/
+**/__pycache__/
+*.pyc
+
+# Jupyter
+**/.ipynb_checkpoints/
+*.ipynb 
+
+# C++
+*.out
+*.o
+
+# Other
+**/.vscode/
 *.nc
 *.hdf
 *.png
 *.tar.xz
-*.pyc
-**/__pycache__/
-**/.ipynb_checkpoints/
+*.nc4
