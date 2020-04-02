@@ -120,4 +120,19 @@ ax4.annotate('$\mathrm{n}_{tot}$ =' + '{}'.format(df_2017['qa_Xco2_nP'].sum()), 
             xycoords='axes fraction',fontsize=14)
 
 plt.savefig('qa_xCO2.pdf')
+
+#Plot delta XCO2 2017 -2016
+
+fig = plt.figure(figsize =(6,4))
+plt.plot(df_2016.index-5 ,df_2017['qa_Xco2_mean']-df_2016['qa_Xco2_mean'], 
+         marker = 'o', linestyle='--')
+plt.xlabel('Upper limit of latitude bin', fontsize=14)
+plt.ylabel('$\Delta_{2017-2016} \; \mathrm{XCO}_2$ ppm', fontsize=14)
+plt.grid()
+plt.xticks(df_2016['bins']);
+mean_inc = (df_2017['qa_Xco2_mean']-df_2016['qa_Xco2_mean']).mean()
+plt.text(0.15,0.9, 'Mean increase {:.3f} ppm'.format(mean_inc), 
+         fontsize=14,transform=fig.transFigure)
+plt.savefig('deltaXco2.pdf')
+
 print('Done!')

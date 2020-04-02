@@ -1,6 +1,6 @@
 \section*{1.}
 
-\subsubsection*{a)}
+\subsubsection*{c)}
 
 The most noticeable difference between the quality check applied
 (\Cref{fig:qa_xco2}) and no quality check (\Cref{fig:no_qa_xco2})
@@ -11,11 +11,13 @@ unrealistic values of \ch{XCO2}. The reason why the quality discarded so many
 data points, I would guess is mostly due to clouds interfering with the signal,
 but at the high latitudes points might also been removed due to ice and snow
 cover on the ground. By looking at MODIS Aqua true color images from NASA
-worldview, there seem to be a lot of clouds between 30 - 40\degree N, which could
-be the reason why the around half of the data points in that bin was discarded.   
+worldview, there seem to be a lot of clouds between 30 - 40\degree N, which
+could be the reason why the around half of the data points in that bin was
+discarded.   
 \begin{figure}[htbp]
     \includegraphics[width=\textwidth]{../xCO2.pdf}
-    \caption{Bias corrected \ch{XCO2} from the OCO2 satellite from 28.04.2016 (left) 
+    \centering
+    \caption{Latitudinal mean  bias corrected \ch{XCO2} from the OCO2 satellite from 28.04.2016 (left) 
     and 28.04.2017 (right), without quality flags applied. The upper panels 
     show the number of data points in each bin. The lower panels shows the \ch{XCO2} 
     concentration in ppm on the y-axis, along the x-axis is the upper limit of
@@ -25,8 +27,9 @@ be the reason why the around half of the data points in that bin was discarded.
 \end{figure}
 
 \begin{figure}[htbp]
+    \centering
     \includegraphics[width=\textwidth]{../qa_xCO2.pdf}
-    \caption{Bias corrected XCO2 from the OCO2 satellite from 28.04.2016 (left) 
+    \caption{Latitudinal mean bias corrected XCO2 from the OCO2 satellite from 28.04.2016 (left) 
     and 28.04.2017 (right), with quality flags applied. The upper panels 
     show the number of data points in each bin. The lower panels shows the \ch{XCO2} 
     concentration in ppm on the y-axis, along the x-axis is the upper limit of
@@ -36,3 +39,31 @@ be the reason why the around half of the data points in that bin was discarded.
 \end{figure}
 
 
+\section*{2.}
+
+\subsection*{a)}
+
+Looking at the latitudinal variation in \ch{XCO2} (\Cref{fig:qa_xco2}) there is about a 7 ppm
+difference between the northern and southern hemisphere. This difference between
+the hemispheres is due to most of the sources of \ch{CO2} is located in the
+northern hemisphere. The data is also from spring time, so the photosynthesis
+have not been able to even out the difference in \ch{CO2} concentration between
+the hemispheres yet. 
+
+\subsection*{b)}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../deltaXco2.pdf}
+    \caption{Difference in mean Bias corrected XCO2 from the OCO2 satellite
+    between 28.04.2017 and 28.04.2016, with quality flags applied. The
+    difference in \ch{XCO2} between the years in ppm on the
+    y-axis, along the x-axis is the upper limit of
+    the latitude bins.}
+    \label{fig:Deltaqa_xco2}
+
+\end{figure}
+
+
+Looking at inter-annual difference, there is a over all increase \ch{CO2}
+concentration in 2017 of about 2 ppm compared to the previous year. The    
