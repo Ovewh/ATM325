@@ -23,7 +23,7 @@ def read_TCCCON_data():
     return df, dset.long_deg.values[0], dset.lat_deg.values[0]
 
 def readGOSat(fileName, lat0,lon0, extentLat = 5, 
-                    extentLon = 10, savedata=False, file_name=None):
+                    extentLon = 10, out_file=None):
 
     f = h5py.File(fileName,'r')
     keys = list(f.keys())
@@ -57,6 +57,30 @@ def readGOSat(fileName, lat0,lon0, extentLat = 5,
         time_arr.append(pd.to_datetime(str(timelist[i])[2:-1], format='%Y-%m-%d %H:%M:%S'))
     dfGO.index = time_arr
     dfGO = dfGO.drop('time', axis =1)
-    if savedata:
-        dfGO.to_csv(̈́'data/'+ file_name)
-    return dfGO
+    if out_file != None:
+        dfGO.to_csv('data/'+ out_file)
+
+if __name__ == "__main__":
+    print('Reading TCCON data')
+    df, lon0, lat0 = read_TCCCON_data()
+    df.to_csv('data/TCCCON_daily_avg.csv')
+    print('Reading XCH4 large region...')
+    #Save XCH4 large region
+    df = readGOSat('GOSAT_NIES_XCH4_v02.75.h5', lon0, lat0, 
+                    out_file='XCH4_large_region.csv')
+
+    #Save XCH4 small region
+    print('Reading XCH4 small region...')
+    df = readGOSat('GOSAT_NIES_XCH4_v02.75.h5', lon0, lat0,
+                    extentLon=5, extentLat=2.5, 
+                    out_file='XCH4_small_region.csv')
+    #Save XCO2 large region 
+    print('Reading XCO2 large region...')
+    df = readGOSat('GOSAT_NIES_XCO2_v02.75.h5', lon0, lat0, 
+                    out_file='XCO2_large_region.csv')
+    #Save XCO2 small region
+    print('Reading XCO2 small region...')
+    df = readGOSat('GOSAT_NIES_XCO2_v02.75.h5', lon0, lat0,
+                    extentLon=5, extentLat=2.5, 
+                    out_file='XCO2_small_region.csv')
+    
