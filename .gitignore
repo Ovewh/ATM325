@@ -40,3 +40,4 @@ __latexindent_temp.tex
 *.png
 *.tar.xz
 *.nc4
+*.h5
