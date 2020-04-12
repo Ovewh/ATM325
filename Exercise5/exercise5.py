@@ -9,16 +9,19 @@ register_matplotlib_converters()
 
 
 
-def read_TCCCON_data():
+def read_TCCCON_data(error_margin=10):
     dset = xr.open_dataset('ci20120920_20191202.public.nc', decode_times=False)
     timeInSec = dset.time.values*24*60*60
     time = pd.to_datetime(timeInSec,yearfirst=True, unit='s')
     dset = dset.assign_coords({"time" :time})
-    df = dset.xco2_ppm.to_dataframe().resample('D').mean()
-    df['xco2_ppm_error'] = dset.xco2_ppm_error.to_dataframe().resample('D').mean()
-    df['xch4_ppm'] = dset.xch4_ppm.to_dataframe().resample('D').mean()
-    df['xch4_ppm_error'] = dset.xch4_ppm_error.to_dataframe().resample('D').mean()
+    df = dset.xco2_ppm.to_dataframe()
+    df['xco2_ppm_error'] = dset.xco2_ppm_error.to_dataframe()
+    df['xch4_ppm'] = dset.xch4_ppm.to_dataframe()*1000
+    df['xch4_ppm_error'] = dset.xch4_ppm_error.to_dataframe()
     
+    df['xco2_ppm'] = df['xco2_ppm'].loc[df.xco2_ppm_error < error_margin]
+    df['xch4_ppm'] = df['xch4_ppm'].loc[df.xch4_ppm_error < error_margin]
+    df = df.dropna().resample('D').mean()
 
     return df, dset.long_deg.values[0], dset.lat_deg.values[0]
 
