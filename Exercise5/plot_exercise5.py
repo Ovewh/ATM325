@@ -11,7 +11,8 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
     validate = pd.DataFrame(validate)
     validate[key2] = dfGo[key2].values
     validate = validate.dropna()
-    print(validate.corr())
+    bias =  validate[key1] - validate[key2]
+    mbias = bias.mean()
     #OLS fit
     formula = '{} ~ {}'.format(key2,key1)
     model = smf.ols(formula=formula, data=validate)
@@ -28,7 +29,10 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
                 + '$R^2$ = {:.3f}'.format(r2)))
     ax.plot(x,x, color = 'grey', linestyle = '--', label='1:1 line')
     ax.grid(True)
-    ax.legend(fontsize=12)
+    ax.legend(fontsize=12,loc ='upper left')
+    ax.annotate('Mean bias {:.3f}'.format(mbias),xy = (0.5,0.1),
+        xycoords ='axes fraction',zorder =1000, 
+        fontsize = 16, color = 'blue')
     
-    return ax
+    return ax 
 
