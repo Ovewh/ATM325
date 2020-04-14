@@ -25,7 +25,7 @@ def read_TCCCON_data(error_margin=10):
 
     return df, dset.long_deg.values[0], dset.lat_deg.values[0]
 
-def readGOSat(fileName, lat0,lon0, extentLat = 5, 
+def readGOSat(fileName, lon0,lat0, extentLat = 5, 
                     extentLon = 10, out_file=None):
 
     f = h5py.File(fileName,'r')

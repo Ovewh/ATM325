@@ -1,0 +1,152 @@
+\documentclass[a4paper,12pt,english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{subfiles}
+\usepackage{csvsimple}
+\usepackage{epstopdf}
+% Standard stuff
+\usepackage{bm,amsmath,graphicx,varioref,verbatim,amsfonts,geometry, mleftright, siunitx}
+\usepackage[colorlinks, citecolor=black]{hyperref}
+\usepackage{algorithm2e}
+\usepackage{cleveref}
+\usepackage[nottoc]{tocbibind}
+\usepackage{csquotes}
+% colors in text
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{chemformula}
+\usepackage[font=it]{caption}
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{float}
+\usepackage{eso-pic}
+\usepackage{physics}
+\usepackage{algpseudocode}
+\usepackage{titlepic}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+% Nicer default font (+ math font) than Computer Modern for most use cases
+\usepackage{mathpazo}
+\usepackage[toc,page]{appendix}
+
+%Cite stuff
+% References like (author, year)
+\usepackage[backend=biber,citestyle=authoryear]{biblatex}
+% \usepackage[backend=biber,style=nature]{biblatex}
+%\usepackage[colorlinks]{hyperref}
+\usepackage{url}
+% Document formatting
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1.5mm}
+
+%Kryss ut ting
+\usepackage[makeroom]{cancel}
+
+
+% Expectation value
+\usepackage{braket}
+
+%Color scheme for listings
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+% remember to use [htp] or [htpb] for placement
+
+%Macro for writing vectors
+\def\*#1{\ensuremath{\mathbf{#1}}}
+
+\newcommand{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
+\newcommand{\uvecj}{{\bm{\hat{\textnormal{\bfseries\j}}}}}
+\DeclareRobustCommand{\uvec}[1]{{%
+  \ifcat\relax\noexpand#1%
+    % it should be a Greek letter
+    \bm{\hat{#1}}%
+  \else
+    \ifcsname uvec#1\endcsname
+      \csname uvec#1\endcsname
+    \else
+      \bm{\hat{\mathbf{#1}}}%
+     \fi
+   \fi
+}}
+\newcommand{\bvec}[1]{\mathbf{#1}}
+%Fixing some ln shit!
+\newcommand{\lnb}[1]{%
+  \ln\mleft(#1\mright)%
+}
+\newcommand\BackgroundIm{
+\put(0,0){
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[height=\paperheight,width=\paperwidth]{FrontpageBlue.png}%
+\vfill
+}}}
+
+% Macros for writing auto-sized paranthesis, brackets and braces
+\newcommand{\para}[1]{\left(#1\right)}
+\newcommand{\brak}[1]{\left[#1\right]}
+\newcommand{\brac}[1]{\left\{#1\right\}}
+
+
+
+\newcommand{\pd}[2][]{\frac{\partial#1}{\partial#2}}
+%Listings configuration
+\usepackage{listings}
+%Hvis du bruker noe annet enn python, endre det her for å få riktig highlighting.
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=python,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+	numbers=left,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941}
+        }
+
+
+
+
+\setlength{\parindent}{1em}
+
+
+
+\author{Ove Haugvaldstad}
+\title{Excercise 5 - Validation XCO2 / XCH4, GOSAT /TCCON}
+\begin{document}
+\maketitle
+\pagenumbering{arabic}
+\subfile{exercise.tex}
+\end{document}
