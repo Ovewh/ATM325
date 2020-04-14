@@ -22,7 +22,7 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
     r2 = fit.rsquared
 
     x = np.linspace(min(validate[key2]),max(validate[key2]),100)
-
+    corr = validate.corr().iloc[0,-1]
     ax.scatter(validate[key2], validate[key1], s=1.4)
     ax.plot(x, alpha + beta*x, color = 'crimson', linestyle = '--', 
         label=('Fitted line, slope = {:.3f} \n'.format(beta) 
@@ -30,8 +30,8 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
     ax.plot(x,x, color = 'grey', linestyle = '--', label='1:1 line')
     ax.grid(True)
     ax.legend(fontsize=12,loc ='upper left')
-    ax.annotate('Mean bias {:.3f}'.format(mbias),xy = (0.5,0.1),
-        xycoords ='axes fraction',zorder =1000, 
+    ax.annotate('Mean bias {:.3f} \n Corr coeff {:.3f}'.format(mbias,
+    corr), xy = (0.5,0.1), xycoords ='axes fraction',zorder =1000, 
         fontsize = 16, color = 'blue')
     
     return ax 

@@ -25,16 +25,30 @@ about 2.2 ppm/year and 5778 ppb/year respectively.
 \subsection*{b)}
 \Cref{fig:scatter_XCO2} shows a scatter plot of \ch{XCO2}, where observations
 from the GOSAT satellite is compared against ground based observations from
-the Caltec TCCON station with two different geometric co-locations. The 
+the Caltec TCCON station using two different geometric co-locations. The 
 small region  corresponds to a tight co-location of $\pm$ 5 \degree in longitude
 and $\pm$ 2.5 \degree in latitude from the TCCON site. The large region
 corresponds to a wider co-location of $\pm$ 10 \degree in longitude and $\pm$
-5 \degree in latitude. 
+5 \degree in latitude. Comparing the large and small region with each other
+there is not much difference.  In both cases GOSAT is slightly over estimating
+the \ch{XCO2} relative to the TCCON observations. Still given the overestimation
+the correlation is quite good in both for the small and large co-location with
+correlation coefficions of 0.95, and 0.96 respectively. The small co-location
+has a slightly smaller mean bias of 1.91 ppm compared to large co-location with
+a mean bias of 2.05 ppm. The small difference between the small and large
+co-location relates to how well mixed \ch{CO2} is in the atmosphere. Suggesting
+that the observed bias in the GOSAT data is most likely because due to errors in
+the retrievals and not local sources or sinks affecting the TCCON station,which
+are not captured by in large co-location. Looking at the standard deviation the
+for the GOSAT observations within the two regions, they are more or less equal,
+further demonstrating how well mixed \ch{CO2} is.      
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../scatter_plot_XCO2.pdf}
     \caption{Scatter plot of daily mean \ch{XCO2} from GOSAT (x-axis) and TCCON caltec (y-axis). The red dotted is a least squares regression line of the data. \textbf{(a)}, corresponds to a tight geometric co-location, whereas \textbf{(b)} corresponds to a wider geometric co-location}
     \label{fig:scatter_XCO2}
 \end{figure}
+
+\subsection*{c)}
 
 \textbf{Codes Here}\footnote{https://github.com/Ovewh/ATM325/tree/master/Exercise5}
