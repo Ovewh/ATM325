@@ -1,15 +1,16 @@
 \section*{1.}
 
-\subsubsection*{a)} \Cref{fig:Time_series_XCH4_XCO2} show the time series of
+\subsubsection*{a)} \Cref{fig:Time_series_XCH4_XCO2} shows a time series of
 daily average total column \ch{CO2} and \ch{CH4} from the Caltec TCCON station.
 The \ch{XCO2} series has a 
 clear seasonal cycle with a peak around February, before the photosynthesis
 kicks in. The \ch{XCH4} also exhibit a
 seasonal behaviour, with a peak in \ch{XCH4} around November, however the
-\ch{XCH4} has more variation. The \ch{XCH4} in November is probably due to the
-sink being weaker due to less sunlight, but the sources are still large, since
-it is not yet cold enough for the for the organic material in the peat-lands to
-be frozen. 
+\ch{XCH4} series has more variation. 
+%The \ch{XCH4} peak in November is probably due to the
+%sink being weaker due to less sunlight, but the sources are still large, since
+%it is not yet cold enough for the for the organic material in the peat-lands to
+%be frozen. 
 
 The average annual growth rate during this period for \ch{XCO2} and \ch{XCH4} is
 about 2.2 ppm/year and 5778 ppb/year respectively.  
@@ -24,24 +25,28 @@ about 2.2 ppm/year and 5778 ppb/year respectively.
 
 \subsection*{b)}
 \Cref{fig:scatter_XCO2} shows a scatter plot of \ch{XCO2}, where observations
-from the GOSAT satellite is compared against ground based observations from
-the Caltec TCCON station using two different geometric co-locations. The 
-small region  corresponds to a tight co-location of $\pm$ 5 \degree in longitude
-and $\pm$ 2.5 \degree in latitude from the TCCON site. The large region
-corresponds to a wider co-location of $\pm$ 10 \degree in longitude and $\pm$
-5 \degree in latitude. Comparing the large and small region with each other
-there is not much difference.  In both cases GOSAT is slightly over estimating
-the \ch{XCO2} relative to the TCCON observations. Still given the overestimation
-the correlation is quite good in both for the small and large co-location with
-correlation coefficions of 0.95, and 0.96 respectively. The small co-location
-has a slightly smaller mean bias of 1.91 ppm compared to large co-location with
-a mean bias of 2.05 ppm. The small difference between the small and large
-co-location relates to how well mixed \ch{CO2} is in the atmosphere. Suggesting
-that the observed bias in the GOSAT data is most likely because due to errors in
-the retrievals and not local sources or sinks affecting the TCCON station,which
-are not captured by in large co-location. Looking at the standard deviation the
-for the GOSAT observations within the two regions, they are more or less equal,
-further demonstrating how well mixed \ch{CO2} is.      
+from the GOSAT satellite is compared to ground based observations from
+the Caltec Total Carbon Column Observing Network (TCCON) station using two
+different geometric co-locations. The instrument used at Caltec TCCON is a
+Fourier-transform spectroscopy which measures radiances from direct
+solar radiation. The tight co-location is $\pm$ 5 \degree in
+longitude and $\pm$ 2.5 \degree in latitude from the TCCON site and the wider
+co-location si $\pm$ 10 \degree in longitude and $\pm$
+5 \degree in latitude.
+
+Generally the GOSAT retrials
+are underestimating the \ch{XCO2} with a mean bias of -0.873 ppm and -0.955 ppm for the
+tight and wide co-location respectively. The marginal difference in bias between
+the small and large co-location relates to how well mixed \ch{CO2} is in the
+atmosphere. The performance of the linear
+regression is marginally worse for the tight co-location due to there being less
+points. The correlation between GOSAT and TCCON is quite high for both the small
+and large co-location with correlation coefficients of 0.939, and 0.942
+respectively. Looking at the
+standard deviation the for the GOSAT observations within the two  co-location, they
+are more or less equal, being 4.776 ppm and 4.839 ppm for the tight and wide
+co-locations respectively. The more or less constant standard deviation between
+the two co-locations demonstrates how \ch{CO2} is well mixed in the atmosphere.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../scatter_plot_XCO2.pdf}
@@ -49,6 +54,27 @@ further demonstrating how well mixed \ch{CO2} is.
     \label{fig:scatter_XCO2}
 \end{figure}
 
-\subsection*{c)}
+\subsection*{c)} 
+\Cref{fig:scatter_XCH4} shows a scatter plot of \ch{XCH4}, where observations
+from the GOSAT satellite is compared against ground based observations from
+the Caltec TCCON station using two different geometric co-locations, as in the
+previous section. In contrast to the \ch{XCO2} validation the where there were
+not much of a difference between the two different co-location, there is now a
+major difference between the tight co-location and wide co-location. The tight
+co-location has much smaller bias of -2.464 ppm compared to the -8.741 ppm for
+the wide co-location. The large difference in bias between the two co-location
+suggest that there are local sources and sinks of \ch{CH4} close to the TCCCON
+station which is not very well captured by the wider co-location. The standard deviation is also much higher for the
+\ch{XCH4} retrials, hinting to higher variability in \ch{CH4} compared to \ch{CO2} 
+concentrations. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{../scatter_plot_XCH4.pdf}
+    \caption{Scatter plot of daily mean \ch{XCH4} from GOSAT (x-axis) and TCCON caltec (y-axis). The red dotted is a least squares regression line of the data. \textbf{(a)}, corresponds to a tight geometric co-location, whereas \textbf{(b)} corresponds to a wider geometric co-location}
+    \label{fig:scatter_XCH4}
+\end{figure}
+
+\section*{2.}
+
 
 \textbf{Codes Here}\footnote{https://github.com/Ovewh/ATM325/tree/master/Exercise5}
