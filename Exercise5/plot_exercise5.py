@@ -11,10 +11,10 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
     validate = pd.DataFrame(validate)
     validate[key2] = dfGo[key2].values
     validate = validate.dropna()
-    bias =  validate[key1] - validate[key2]
+    bias =  validate[key2] - validate[key1]
     mbias = bias.mean()
     #OLS fit
-    formula = '{} ~ {}'.format(key1,key2)
+    formula = '{} ~ {}'.format(key2,key1)
     model = smf.ols(formula=formula, data=validate)
     fit = model.fit()
     alpha = fit.params[0]
@@ -23,7 +23,7 @@ def create_scatter(ax,dfGo, df_TCCCON, key1, key2):
 
     x = np.linspace(min(validate[key2]),max(validate[key2]),100)
     corr = validate.corr().iloc[0,-1]
-    ax.scatter(validate[key2], validate[key1], s=1.4)
+    ax.scatter(validate[key1], validate[key2], s=1.4)
     ax.plot(x, alpha + beta*x, color = 'crimson', linestyle = '--', 
         label=('Fitted line, slope = {:.3f} \n'.format(beta) 
                 + '$R^2$ = {:.3f}'.format(r2)))
