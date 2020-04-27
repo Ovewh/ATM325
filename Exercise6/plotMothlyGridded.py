@@ -46,6 +46,6 @@ if __name__ == "__main__":
     #                     ,'OMI_2019_{}'.format(month), 27)
     
     for month, ncfile in zip(months,os.listdir(direcTropomi)):
-        plotMonthlyGridded(direcTropomi + ncfile, 'Time averaged monthly map of TROPOMI troposheric NO2 {} 2019'.format(month) 
+        plotMonthlyGridded(direcTropomi + ncfile, 'Time averaged monthly map of TROPOMI tropospheric NO2 {} 2019'.format(month) 
                         ,'TROPOMI_2019_{}'.format(month), 27)
     
